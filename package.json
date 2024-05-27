@@ -1,0 +1,27 @@
+{
+    "name": "javascript_cookbook",
+    "version": "0.1.0",
+    "description": "Naykel Vite Starter",
+    "type": "module",
+    "main": "src/main.js",
+    "scripts": {
+        "start": "vite --open",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "keywords": [
+        "naykel",
+        "vite",
+        "node"
+    ],
+    "author": "Nathan Watts",
+    "license": "ISC",
+    "devDependencies": {
+        "@fullhuman/postcss-purgecss": "^5.0.0",
+        "autoprefixer": "^10.4.16",
+        "nk_jtb": "^0.9.0",
+        "postcss": "^8.4.33",
+        "sass": "^1.69.7",
+        "vite": "^5.0.11"
+    }
+}
