@@ -1,6 +1,6 @@
 import styledLog from "./utils/styledLog";
 
-styledLog('Operators', 'orange');
+styledLog('Operators', { heading: true });
 
 /**
  * Logical OR (||) operator
