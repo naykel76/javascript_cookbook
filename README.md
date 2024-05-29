@@ -11,7 +11,7 @@ playground to test out new code.
 
 ## Features
 
-- **Write and Test Code**: Edit the `main.js` file to see your JavaScript code snippets in action.
+- **Write and Test Code**: Edit the `app.js` file to see your JavaScript code snippets in action.
 - **Instant Feedback**: View the console output in real-time without having to refresh the page.
 
 ## Installation
@@ -34,14 +34,14 @@ When the server is running, all changes made will be automatically reloaded in t
 
 ### Viewing the examples output
 
-The examples are just a series of files that are imported into the `main.js`
+The examples are just a series of files that are imported into the `app.js`
 file. These files contain code snippets that log out to the console. To view the
 output for the examples, open the console in your browser. Once open, you can
 view the relevant snippet by clicking on the file name in the console, or
 opening the file located in the `src/js` directory.
 
 You can comment out the examples you don't want to see in the console by
-commenting out the import statement in the `main.js` file. 
+commenting out the import statement in the `app.js` file. 
 
 ![console-output-example](./src/images/console-output-example.png)
 

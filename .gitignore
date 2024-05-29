@@ -23,4 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-nk_tmp.md
+
+nk_tasks.md
+/tmp

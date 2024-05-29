@@ -1,6 +1,6 @@
 const defaults = {
     color: 'blue',
-    fontSize: '10px',
+    fontSize: '12px',
     heading: false
 };
 
