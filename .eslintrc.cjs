@@ -25,6 +25,7 @@ module.exports = {
     },
     "rules": {
         "semi": ["error", "always"],
-        "no-redeclare": "off"
+        "no-redeclare": "off",
+        "no-unused-vars": "off"
     }
 };

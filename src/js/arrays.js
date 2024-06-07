@@ -1,60 +1,64 @@
 import styledLog from "./utils/styledLog";
 
-// **NOTE** VAR HAS BEEN USED TO MAKE IT EASY TO REASSIGN THE VARIABLE, THIS IS
-// NOT THE RECOMMENDED APPROACH IN MODERN JAVASCRIPT. USE CONST AND LET INSTEAD.
+// **NOTE** 
+// VAR HAS BEEN USED TO MAKE IT EASY TO REASSIGN VARIABLES.
+// THIS IS NOT THE RECOMMENDED APPROACH IN MODERN JAVASCRIPT.
 
 /**
  * MUTABLE ARRAY METHODS
  */
 
-// styledLog('MUTATING ARRAY METHODS', { heading: true });
+styledLog('MUTATING ARRAY METHODS', { heading: true });
 
-// styledLog('push(...items):number - adds to end, returns new length');
-// var letters = ['a', 'b', 'c'];
-// var newLength = letters.push(1, 2, 3);
-// console.log('new length:', newLength); // 6
-// console.log('mutated array:', letters); // ['a', 'b', 'c', 1, 2, 3]
+styledLog('push(...items):number - adds to end, return new length');
+var myArray = ['a', 'b', 'c'];
+var add_to_end_return_new_length = myArray.push(1, 2, 3);
+console.log('get new length:', add_to_end_return_new_length); // 6
+console.log('mutated array:', myArray); // ['a', 'b', 'c', 1, 2, 3]
 
-// styledLog('pop():any - removes last item and returns it');
-// var letters = ['a', 'b', 'c'];
-// const lastItem = letters.pop();
-// console.log('last item from array:', lastItem); // c
-// console.log('mutated array:', letters); // ['a', 'b']
+styledLog('pop():any - removes last item and return it');
+var myArray = ['a', 'b', 'c'];
+var remove_last_and_return_it = myArray.pop();
+console.log('get last item:', remove_last_and_return_it); // c
+console.log('mutated array:', myArray); // ['a', 'b']
 
-// styledLog('unshift(...items):number - adds items to start, returns new length');
-// var letters = ['a', 'b', 'c'];
-// var newLength = letters.unshift(1, 2, 3);
-// console.log('new length:', newLength); // 6
-// console.log('mutated array:', letters); // [1, 2, 3, 'a', 'b', 'c']
+styledLog('unshift(...items):number - adds items to start, return new length');
+var myArray = ['a', 'b', 'c'];
+var add_to_start_return_new_length = myArray.unshift(1, 2, 3); 
+console.log('get new length:', add_to_start_return_new_length); // 6
+console.log('mutated array:', myArray); // [1, 2, 3, 'a', 'b', 'c']
 
-// styledLog('shift():any - removes first item and returns it');
-// var letters = ['a', 'b', 'c'];
-// const firstItem = letters.shift();
-// console.log('new length:', firstItem); // a
-// console.log('mutated array:', letters); // ['b', 'c']
+styledLog('shift():any - remove first item and return it');
+var myArray = ['a', 'b', 'c'];
+var remove_first_and_return_it = myArray.shift();
+console.log('removed item:', remove_first_and_return_it); // a
+console.log('mutated array:', myArray); // ['b', 'c']
 
-// styledLog('splice(start, deleteCount?, ...items):any[] - removes and/or adds elements from/at index');
-// var letters = ['a', 'b', 'c', 'd', 'e', 'f'];
-// const middleTwo = letters.splice(2, 2);
-// console.log('middle two letters:', middleTwo); // ['c', 'd']
-// console.log('mutated array:', letters); // ['a', 'b', 'e', 'f']
+styledLog('splice(start, deleteCount?, ...items):any[] - removes and/or adds elements from/at index');
+var myArray = ['a', 'b', 'c', 'd', 'e', 'f'];
+var delete_items_from_index = myArray.splice(2, 2);
+console.log('delete items from index:', delete_items_from_index); // ['c', 'd']
+console.log('mutated array:', myArray); // ['a', 'b', 'e', 'f']
 
-// styledLog('reverse():[] - reverse the array in place');
-// var letters = ['a', 'b', 'c'];
-// letters.reverse();
-// console.log('reversed mutated array:', letters); // ['c', 'b', 'a']
+var myArray = ['a', 'b', 'c', 'd', 'e', 'f'];
+var add_items_from_index = myArray.splice(2, 0, 't', 'u');
+console.log('mutated array:', myArray); // ['a', 'b', 't', 'u', 'c', 'd', 'e', 'f']
 
-// styledLog('sort(compareFn?):[] - sorts in place');
-// styledLog('note: sorts elements as strings, not numbers.', { color: 'red' });
-// var nums = [9, 20, 1, 10, 2];
-// var sorted = nums.sort();
-// console.log('sort numbers as string:', sorted); // [1, 10, 2, 20, 9]
+styledLog('reverse():[] - reverse the array in place');
+var myArray = ['a', 'b', 'c'];
+var reverse_array_in_place = myArray.reverse(); // ['c', 'b', 'a']
+console.log('reversed mutated array:', myArray ); // ['c', 'b', 'a']
 
-// var sortAscending = nums.sort((a, b) => a - b);
-// console.log('sort numbers ascending:', sortAscending); // [1, 2, 9, 10, 20]
+styledLog('sort(compareFn?):[] - sorts in place');
+styledLog('note: sorts elements as strings, not numbers.', { color: 'red' });
+var numsArray = [9, 20, 1, 10, 2];
+var sort_as_strings = numsArray.sort();
+console.log('sort numbers as string:', numsArray); // [1, 10, 2, 20, 9]
+var sort_my_value_asc = numsArray.sort((a, b) => a - b);
+console.log('sort numbers ascending:', numsArray); // [1, 2, 9, 10, 20]
+var sort_my_value_desc = numsArray.sort((a, b) => b - a);
+console.log('sort numbers descending:', numsArray); // [20, 10, 9, 2, 1]
 
-// var sortDescending = nums.sort((a, b) => b - a);
-// console.log('sort numbers descending:', sortDescending); // [20, 10, 9, 2, 1]
 
 /**
  * NON-MUTATING ARRAY METHODS
@@ -63,57 +67,57 @@ import styledLog from "./utils/styledLog";
 styledLog('NON-MUTATING ARRAY METHODS', { heading: true });
 
 styledLog('concat(...items):[] - combines arrays or values into a new array');
-var numbers = [10, 20, 30];
-const combinedArray = numbers.concat(['a', 'b', 'c']);
-console.log('combined array:', combinedArray); // [10, 20, 30, 'a', 'b', 'c']
+var numsArray = [10, 20, 30];
+var combine_arrays = numsArray.concat(['a', 'b', 'c']);
+console.log('combined array:', combine_arrays); // [10, 20, 30, 'a', 'b', 'c']
 
 styledLog('join(separator?):string - joins all elements of an array into a string');
-const wordsArray = ['Ni hao', 'Hallo', 'Bonjour'];
-const joinedArray = wordsArray.join(' ');
-console.log('joined array:', joinedArray); // 'Ni hao Hallo Bonjour'
+var wordsArray = ['I', 'like', 'apples'];
+var join_elements_as_single_string = wordsArray.join(' ');
+console.log('joined array:', join_elements_as_single_string); // 'I like apples'
 
 styledLog('filter(predicate):[]: Creates a new array with elements that pass the predicate test');
-var numbers = [10, 15, 20, 25, 30];
-const greaterThan15 = numbers.filter(num => num > 15);
-console.log('filter numbers greater than 15:', greaterThan15); // [20, 25, 30]
+var numsArray = [10, 15, 20, 25, 30];
+var numbers_greater_than_15 = numsArray.filter(num => num > 15);
+console.log('filter numbers greater than 15:', numbers_greater_than_15); // [20, 25, 30]
 
 styledLog('map(callback):[] - transforms each element using the callback');
-var numbers = [10, 20, 30];
-const doubled = numbers.map(num => num * 2);
-console.log('doubled numbers:', doubled); // [20, 40, 60]
+var numsArray = [10, 20, 30];
+var double_each_number = numsArray.map(num => num * 2);
+console.log('doubled numbers:', double_each_number); // [20, 40, 60]
 
 styledLog('reduce(callback, initialValue?):any - reduces array to a single value using the callback');
 styledLog('the callback function takes 4 arguments: acc, value, index, array', { color: 'red' });
-var numbers = [10, 20, 30];
-var sum = numbers.reduce((acc, value) => acc + value, 0);
-console.log('sum of values:', sum); // 60
+var numsArray = [10, 20, 30];
+var sum_using_reduce = numsArray.reduce((acc, value) => acc + value, 0);
+console.log('sum of values:', sum_using_reduce); // 60
 
 styledLog('every(predicate):boolean - checks if all elements pass the predicate test');
-var numbers = [10, 20, 30];
-const isOnlyNumeric = numbers.every(val => Number.isInteger(val));
-console.log('has only numeric values:', isOnlyNumeric); // true
+var numsArray = [10, 20, 30];
+var is_only_numeric = numsArray.every(val => Number.isInteger(val));
+console.log('has only numeric values:', is_only_numeric); // true
 
 styledLog('some(predicate):boolean - checks if any element passes the predicate test');
-var numbers = [10, 20, 30];
-const hasAnyStrings = numbers.some(val => typeof val === 'string');
-console.log('has any strings:', hasAnyStrings); // false
+var numsArray = [10, 20, 30];
+var has_any_strings = numsArray.some(val => typeof val === 'string');
+console.log('has any strings:', has_any_strings); // false
 
 styledLog('find(predicate):any - finds first element that passes the predicate test');
-var numbers = [10, 20, 30];
-const firstValue = numbers.find(num => num > 12);
-console.log('first number > 12:', firstValue); // 20
+var numsArray = [10, 20, 30];
+var first_value_greater_than_12 = numsArray.find(num => num > 12);
+console.log('first number > 12:', first_value_greater_than_12); // 20
 
 styledLog('includes(values):boolean - checks if array includes the value');
-var numbers = [10, 20, 30];
-const hasValue = numbers.includes('apple');
-console.log('array includes \'apple\':', hasValue); // false
+var numsArray = [10, 20, 30];
+var array_includes_value = numsArray.includes('apple');
+console.log('array includes \'apple\':', array_includes_value); // false
 
-styledLog('slice(startIdx?, endIdx?):any[] - returns a shallow copy of a portion of an array');
-var numbers = [10, 15, 20, 25, 30];
-const excludeEndValues = numbers.slice(1,-1);
-console.log('all items except first and last:', excludeEndValues); // [15, 20, 25]
+styledLog('slice(startIdx?, endIdx?):any[] - return a shallow copy of a portion of an array');
+var numsArray = [10, 15, 20, 25, 30];
+var items_except_first_and_last = numsArray.slice(1, -1);
+console.log('all items except first and last:', items_except_first_and_last); // [15, 20, 25]
 
 styledLog('indexOf(value):number - finds first index of the value, or -1 if not found');
 var people = ['John', 'Mike', 'Sue', 'Jimbo'];
-const index = people.indexOf('Sue');
-console.log('index of \'sue\':', index); // 2
+var get_index_of_value = people.indexOf('Sue');
+console.log('index of \'sue\':', get_index_of_value); // 2
