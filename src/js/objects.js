@@ -1,16 +1,31 @@
 import styledLog from './utils/styledLog';
 
 // **NOTE** 
-// VAR HAS BEEN USED TO MAKE IT EASY TO REASSIGN VARIABLES.
+// VAR MAY BE USED TO MAKE IT EASY TO REASSIGN VARIABLES.
 // THIS IS NOT THE RECOMMENDED APPROACH IN MODERN JAVASCRIPT.
 
-styledLog('WORKING WITH OBJECTS', { heading: true });
+const person = { name: 'Mike', age: 23 };
 
+styledLog('Object functions: keys, values, entries, in, hasOwnProperty, toString', {heading: true});
 
-// OBJECTS
-// Object.keys(obj): string[]           // returns object's keys
-// Object.values(obj): any[]            // returns object's values
-// Object.entries(obj): [string, any][] // returns object's key-value pairs
+styledLog('Object.keys(obj):string[] - returns an array of object names (keys)');  
+var keys = Object.keys(person); // [ 'name', 'age']
+console.log('Keys:', keys);
+
+styledLog('Object.values(obj):any[] - returns an array of a given object values');
+var values = Object.values(person); // [ 'Mike', 23 ]
+console.log('Values:', values);
+
+styledLog('Object.entries(obj):[string, any][] - returns an array of a given object\'s own enumerable string-keyed property [key, value] pairs');
+var entries = Object.entries(person); // [ [ 'name', 'Mike' ], [ 'age', 23 ] ]
+console.log('Entries:', entries);
+
+styledLog('Check property existence - (hasOwnProperty(), in, !== undefined))');
+const has_own_property = person.hasOwnProperty('age');
+const key_in_object = 'age' in person;
+const key_not_undefined = person.age !== undefined;
+console.log('Property Exists?', has_own_property, key_in_object, key_not_undefined);
+
 
 styledLog('Merge objects');
 

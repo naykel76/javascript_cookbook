@@ -3,12 +3,15 @@
 - [String Operators](#string-operators)
 - [Arrays](#arrays)
 - [Conditionals](#conditionals)
+- [Functions](#functions)
+- [Objects](#objects)
 - [Regex](#regex)
 
 
 ```bash
 ||  # return first truthy or last if all are falsy
 ??  # return first non-nullish or last if all are nullish
+
 ```
 
 ## Data Types
@@ -29,8 +32,7 @@ instanceof  # return true if an object is an instance of a class
 
 ```js
 // Logical OR (||) operator (false, 0, '', NaN, null, undefined)
-var first_truthy = false || 'Noodle' || true; // 'Noodle'
-var true_or_last_falsy = false || 0 || NaN || undefined; // undefined 
+var first_true_or_last_false = false || NaN || undefined; // undefined 
 var non_empty_string = '' || 'Noodle'; // 'Noodle'
 var bool_true = 0 || 1;   
 // Nullish coalescing (??) operator (null or undefined)
@@ -40,10 +42,11 @@ var first_non_nullish2 = null ?? false ?? 'Noodle'; // false
 var non_empty_string = '' ?? 'Noodle'; // ''
 var non_zero_number = 0 ?? 1; // 0
 ```
+
 ## String Operators
 
 ```js
-charAt(index): string // returns the character at the specified index
+charAt(index): string // return the character at the specified index
 substring(start, end): string // extracts the characters from a string, between two specified indices
 toLowerCase(): string // converts a string to lowercase letters
 toUpperCase(): string // converts a string to uppercase letters
@@ -63,11 +66,24 @@ every(predicate):boolean // checks if all elements pass the predicate test
 some(predicate):boolean // checks if any element passes the predicate test
 find(predicate):any // finds first element that passes the predicate test
 includes(values):boolean // checks if array includes the value
-slice(startIdx?, endIdx?):any[] // return shallow copy of a portion of an array
+slice(startIdx?, endIdx?):any[] // return shallow copy of a portion of an array includes startIdx, excludes endIdx
 indexOf(value):number // finds first index of the value, or -1 if not found
 
-/*concat*/   combine_arrays = numsArray.concat(['a', 'b', 'c']);
-/*join*/     join_elements_as_single_string = wordsArray.join(' ');
+** slice
+concat(...items):[] --- combine_arrays = numsArray.concat(['a', 'b']); // [1, 2, 'a', 'b']
+join(separator?):string --- join_elements_as_single_string = lettersArray.join('-'); // a-b-c
+filter(predicate):[] --- numbers_greater_than_15 = numsArray.filter(num => num > 15);
+map(callback):[] --- double_each_number = numsArray.map(num => num * 2);
+reduce(callback, initialValue?):any --- sum_using_reduce = numsArray.reduce((acc, value) => acc + value, 0);
+every(predicate):boolean --- is_only_numeric = numsArray.every(val => Number.isInteger(val));
+some(predicate):boolean --- has_any_strings = numsArray.some(val => typeof val === 'string');
+find(predicate):any --- first_value_greater_than_12 = numsArray.find(num => num > 12);
+includes(values):boolean --- array_includes_value = numsArray.includes('apple');
+slice(startIdx?, endIdx?):any[] --- all_items_except_first_and_last = numsArray.slice(1, -1);
+indexOf(value):number --- get_index_of_value = people.indexOf('Sue');
+
+/*concat*/   combine_arrays = numsArray.concat(['a', 'b']); // [1, 2, 'a', 'b']
+/*join*/     join_elements_as_single_string = lettersArray.join('-'); // a-b-c
 /*filter*/   numbers_greater_than_15 = numsArray.filter(num => num > 15);
 /*map*/      double_each_number = numsArray.map(num => num * 2);
 /*reduce*/   sum_using_reduce = numsArray.reduce((acc, value) => acc + value, 0);
@@ -75,7 +91,7 @@ indexOf(value):number // finds first index of the value, or -1 if not found
 /*some*/     has_any_strings = numsArray.some(val => typeof val === 'string');
 /*find*/     first_value_greater_than_12 = numsArray.find(num => num > 12);
 /*includes*/ array_includes_value = numsArray.includes('apple');
-/*slice*/    items_except_first_and_last = numsArray.slice(1, -1);
+/*slice*/    all_items_except_first_and_last = numsArray.slice(1, -1); // includes startIdx, excludes endIdx
 /*indexOf*/  get_index_of_value = people.indexOf('Sue');
 ```
 
@@ -95,9 +111,9 @@ splice(start, delCount ?, ...items): any[]  // removes and/or adds elements from
 /*shift*/   remove_first_and_return_it = myArray.shift();
 /*reverse*/ reverse_array_in_place = myArray.reverse();
 /*sort*/    sort_as_strings = numsArray.sort();
-/*sort*/    sort_my_value_asc = numsArray.sort((a, b) => a - b);
-/*sort*/    sort_my_value_desc = numsArray.sort((a, b) => b - a);
-/*splice*/  delete_items_from_index = myArray.splice(2, 2);
+/*sort*/    sort_values_asc = numsArray.sort((a, b) => a - b);
+/*sort*/    sort_values_desc = numsArray.sort((a, b) => b - a);
+/*splice*/  from_idx_copy_num_items = myArray.splice(2, 2);
 /*splice*/  add_items_from_index = myArray.splice(2, 0, 't', 'u');
 ```
 
@@ -108,6 +124,39 @@ for...in  # Iterates over the keys (property names) of an object
 for...of  # Iterates over the values of an iterable object
 break     # Exits the loop immediately
 continue  # Skip the current iteration, and continue to the next
+```
+
+## Functions
+
+- functions can be hoisted (called before they are declared)
+- a closure is a function that has access to the outer function's variables
+- 
+  
+```js
+// FUNCTIONS
+function name(param1, param2) { ... }       // function declaration
+const name = (param1, param2) => { ... }    // arrow function
+
+
+```
+
+## Objects
+
+```js
+Object.keys(obj): string[] // return object keys
+Object.values(obj): any[] // return object values
+Object.entries(obj): [string, any][] // return object key-value pairs
+
+obj.hasOwnProperty('key'): boolean // return true if object has the key
+
+/*key exists*/ hasOwnProperty(), in, obj.key !== undefined
+
+// OBJECTS
+obj = { key1: 'val1', key2: 'val2' }; // object literal
+obj = new Object(); // object constructor
+
+obj = Object.(); // object with no prototype
+obj = Object.create(null); // object with no prototype
 ```
 
 ## Regex
@@ -143,11 +192,6 @@ const { key1, key2 } = obj;                 // extracts key1 and key2 from obj
 const [first, second] = ['fish',  'cake'];  // extracts first and second from array
 ```
 
-```js
-// FUNCTIONS
-function name(param1, param2) { ... }       // function declaration
-const name = (param1, param2) => { ... }    // arrow function
-```
 
 ```js
 const myStr = 'Noodle';

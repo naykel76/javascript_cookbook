@@ -1,7 +1,7 @@
 import styled_log from "./utils/styled_log";
 
 // **NOTE** 
-// VAR HAS BEEN USED TO MAKE IT EASY TO REASSIGN VARIABLES.
+// VAR MAY BE USED TO MAKE IT EASY TO REASSIGN VARIABLES.
 // THIS IS NOT THE RECOMMENDED APPROACH IN MODERN JAVASCRIPT.
 
 styled_log('Operators', { heading: true });
